@@ -1,22 +1,50 @@
 describe('2-module-1-task', () => {
-let salaries = {
-  John: 1000,
-  Ann: 1600,
-  Pete: 1300,
-  month: "December",
-  currency: "USD",
-  isPayed: false,
-};
+  it('должна складывать все зарплаты', () => {
+    let salaries = {
+      John: 1000,
+      Ann: 1600,
+      Pete: 1300
+    };
 
-function sumSalary(salaries) {
-  let sum = 0;
-  for (key in salaries) {
-    conditions = salaries[key];
+    expect(sumSalary(salaries)).toEqual(3900);
+  });
 
-    if (typeof conditions === "number" && isFinite(conditions) === true) {
-      sum += conditions;
-    }
-  }
-  return sum;
-}
-sumSalary(salaries);
+  it('должна игнорировать свойства других типов', () => {
+    let salaries = {
+      John: 1000,
+      Ann: 1600,
+      Pete: 1300,
+      month: 'December',
+      currency: 'USD',
+      isPayed: false
+    };
+
+    expect(sumSalary(salaries)).toEqual(3900);
+  });
+
+  it('должна игнорировать специальные числовые значения', () => {
+    let salaries = {
+      John: 1000,
+      Ann: 1600,
+      Pete: 1300,
+      Bob: NaN,
+      Peter: Infinity,
+      Ivan: -Infinity,
+      month: 'December',
+      currency: 'USD',
+      isPayed: false
+    };
+
+    expect(sumSalary(salaries)).toEqual(3900);
+  });
+
+  it('должна возвращать 0 если нет свойств с зарплатами', () => {
+    let salaries = {
+      month: 'December',
+      currency: 'USD',
+      isPayed: false
+    };
+
+    expect(sumSalary(salaries)).toEqual(0);
+  });
+});
