@@ -1,3 +1,4 @@
+describe('2-module-1-task', () => {
 let salaries = {
   John: 1000,
   Ann: 1600,
