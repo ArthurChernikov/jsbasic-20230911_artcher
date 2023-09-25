@@ -1,5 +1,5 @@
 export default string => Array.from(string).map(char => {
-  switch(char) {
+  switch (char) {
     case '&':
       return '&amp;';
     case '"':
