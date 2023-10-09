@@ -1,6 +1,5 @@
 function highlight(table) {
   tbody = table.tBodies[0];
-  // tbody.style.backgroundColor = 'red'
   for (let i = 0; i < tbody.rows.length; i++) {
     if (tbody.rows[i].cells[1].innerHTML < 18) {
       tbody.rows[i].style = "text-decoration: line-through";
