@@ -10,7 +10,7 @@ function highlight(table) {
     } else {
       tbody.rows[i].classList.add("female");
     }
-
+    
     if (tbody.rows[i].cells[3].dataset.available == "true") {
       tbody.rows[i].classList.add("available");
     } else if (tbody.rows[i].cells[3].dataset.available == "false") {
