@@ -7,6 +7,7 @@ function initCarousel() {
   let counter = 0;
   const dist = innerWidth;
   btnPrev.style.display = "none";
+  
   btnPrev.addEventListener("click", function (ev) {
     const target = ev.target;
     const btnPrev = target.closest(".carousel__arrow_left");
