@@ -14,7 +14,7 @@
  */
 export default class UserTable {
   constructor(rows) {
-    this.elem = deleteRows(rows)
+    this.elem = deleteRows(rows);
   }
 }
 
@@ -27,7 +27,7 @@ function createTable(obj) {
   <td>${obj.city}</td>
   <td><button>X</button></td>
 </tr>
-  `
+  `;
 }
 function makeHTML(array) {
   return `
@@ -40,16 +40,17 @@ function makeHTML(array) {
         </tr>
     </thead>
     <tbody>
-        ${array.map(createTable).join('')}
-    </tbody>`
+        ${array.map(createTable).join("")}
+    </tbody>`;
 }
 function deleteRows(array) {
   const table = document.createElement("table");
   table.innerHTML = makeHTML(array);
-  const buttons = table.querySelectorAll("button")
+  const buttons = table.querySelectorAll("button");
   for (const button of buttons) {
-    button.addEventListener('click', (event) =>
-      event.target.closest("tr").remove())
+    button.addEventListener("click", (event) =>
+      event.target.closest("tr").remove()
+    );
   }
   return table;
 }
